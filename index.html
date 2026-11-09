@@ -4,494 +4,146 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Centsy — Privacy Policy</title>
-  <meta name="description" content="Privacy policy for Centsy, the offline personal finance app. No data collected, no account, no ads.">
+  <meta name="description" content="Privacy policy for Centsy, the offline personal finance app.">
   <style>
     :root {
       color-scheme: light dark;
       --accent: #0f6b5c;
-      --accent-soft: rgba(15, 107, 92, .10);
-      --ink: #111413;
-      --body: #3d4441;
-      --muted: #6f7975;
-      --line: #e4e7e5;
-      --bg: #fbfbfa;
-      --panel: #ffffff;
-      --max: 1180px;
+      --ink: #161b19;
+      --muted: #6b7671;
+      --line: #e5e8e6;
+      --bg: #ffffff;
     }
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
     body {
       margin: 0;
+      padding: 56px 24px 80px;
       background: var(--bg);
-      color: var(--body);
-      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      font-size: 16px;
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 17px;
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
     }
+    main { max-width: 660px; margin: 0 auto; }
 
-    .shell {
-      width: 100%;
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 28px;
-    }
-
-    /* top bar */
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: var(--bg);
-      background: color-mix(in srgb, var(--bg) 86%, transparent);
-      backdrop-filter: saturate(1.4) blur(14px);
-      -webkit-backdrop-filter: saturate(1.4) blur(14px);
-      border-bottom: 1px solid var(--line);
-    }
-    .topbar .shell {
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--ink);
-      text-decoration: none;
-      font-weight: 650;
-      letter-spacing: -.01em;
-      font-size: 15px;
-    }
-    .brand .dot {
-      width: 24px; height: 24px;
-      border-radius: 50%;
-      background: var(--accent);
-      display: grid; place-items: center;
-      flex: 0 0 auto;
-    }
-    .brand .dot svg { width: 14px; height: 14px; }
-    .doc {
-      font-size: 12.5px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    /* layout */
-    .layout {
-      display: grid;
-      grid-template-columns: minmax(0, 700px);
-      justify-content: center;
-      padding-top: 72px;
-      padding-bottom: 96px;
-    }
-    @media (min-width: 1000px) {
-      .layout {
-        grid-template-columns: 220px minmax(0, 700px);
-        justify-content: space-between;
-        gap: 72px;
-        padding-top: 88px;
-      }
-    }
-
-    /* toc */
-    .toc { display: none; }
-    @media (min-width: 1000px) {
-      .toc {
-        display: block;
-        position: sticky;
-        top: 96px;
-        align-self: start;
-        padding-top: 6px;
-      }
-      .toc p {
-        margin: 0 0 14px;
-        font-size: 11.5px;
-        letter-spacing: .16em;
-        text-transform: uppercase;
-        color: var(--muted);
-      }
-      .toc ol {
-        list-style: none;
-        margin: 0; padding: 0;
-        border-left: 1px solid var(--line);
-      }
-      .toc a {
-        display: block;
-        padding: 6px 0 6px 16px;
-        margin-left: -1px;
-        border-left: 1px solid transparent;
-        color: var(--muted);
-        font-size: 14px;
-        text-decoration: none;
-        transition: color .15s ease, border-color .15s ease;
-      }
-      .toc a:hover { color: var(--ink); border-left-color: var(--accent); }
-    }
-
-    /* article */
-    article { min-width: 0; }
-    .eyebrow {
-      margin: 0 0 18px;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: .16em;
+    .app {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .18em;
       text-transform: uppercase;
       color: var(--accent);
     }
     h1 {
-      margin: 0 0 20px;
-      font-size: clamp(40px, 6.5vw, 62px);
-      line-height: 1.02;
-      letter-spacing: -.045em;
-      font-weight: 700;
-      color: var(--ink);
-    }
-    .lede {
-      margin: 0 0 22px;
-      font-size: clamp(17px, 2vw, 19px);
-      line-height: 1.6;
-      color: var(--body);
-      max-width: 34ch;
-    }
-    .updated {
-      margin: 0;
-      padding-bottom: 34px;
-      border-bottom: 1px solid var(--line);
-      font-size: 13.5px;
-      color: var(--muted);
-    }
-    .updated code {
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 12.5px;
-      color: var(--body);
-    }
-
-    /* key facts */
-    .facts {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      margin: 34px 0 8px;
-      border-top: 1px solid var(--line);
-      border-left: 1px solid var(--line);
-    }
-    .facts div {
-      padding: 18px 20px;
-      border-right: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-    .facts span {
-      display: block;
-      font-size: 11.5px;
-      letter-spacing: .13em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 5px;
-    }
-    .facts strong {
-      font-size: 15.5px;
-      font-weight: 600;
-      color: var(--ink);
-      letter-spacing: -.01em;
-    }
-    @media (min-width: 640px) {
-      .facts { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    }
-
-    section { scroll-margin-top: 88px; }
-    h2 {
-      margin: 64px 0 14px;
-      padding-top: 26px;
-      border-top: 1px solid var(--line);
-      font-size: 21px;
-      line-height: 1.3;
+      margin: 10px 0 8px;
+      font-size: 34px;
+      line-height: 1.15;
       letter-spacing: -.02em;
-      font-weight: 650;
-      color: var(--ink);
+      font-weight: 700;
     }
-    h2 span {
-      display: inline-block;
-      min-width: 26px;
-      margin-right: 10px;
-      font-size: 13px;
-      font-weight: 600;
+    .meta {
+      margin: 0;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
       color: var(--muted);
-      font-variant-numeric: tabular-nums;
     }
-    h3 {
-      margin: 0 0 4px;
-      font-size: 15.5px;
+
+    h2 {
+      margin: 40px 0 10px;
+      font-size: 19px;
+      line-height: 1.35;
+      letter-spacing: -.01em;
       font-weight: 650;
-      color: var(--ink);
     }
     p { margin: 0 0 14px; }
-    strong { font-weight: 650; color: var(--ink); }
-    ul.plain { margin: 0 0 14px; padding-left: 20px; }
-    ul.plain li { margin: 6px 0; }
+    ul { margin: 0 0 14px; padding-left: 22px; }
+    li { margin: 6px 0; }
+    strong { font-weight: 650; }
+    a { color: var(--accent); }
 
-    a.inline {
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
-    }
-    a.inline:hover { border-bottom-color: var(--accent); }
-
-    /* permissions */
-    .perm {
-      display: flex;
-      gap: 16px;
-      padding: 18px 0;
-      border-top: 1px solid var(--line);
-    }
-    .perm:first-of-type { border-top: 0; padding-top: 6px; }
-    .perm .ico {
-      flex: 0 0 auto;
-      width: 38px; height: 38px;
-      display: grid; place-items: center;
-      border-radius: 10px;
-      background: var(--accent-soft);
-      color: var(--accent);
-    }
-    .perm .ico svg { width: 18px; height: 18px; }
-    .perm p { margin: 0; font-size: 15px; }
-
-    /* contact */
-    .contact-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 14px 18px;
-      margin-top: 16px;
-    }
-    .contact {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      padding: 11px 18px;
-      border-radius: 10px;
-      background: var(--ink);
-      color: var(--bg);
-      font-size: 14.5px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: opacity .15s ease;
-    }
-    .contact:hover { opacity: .86; }
-    .contact svg { width: 16px; height: 16px; }
-    .contact-note { font-size: 13.5px; color: var(--muted); }
-
-    /* footer */
     footer {
+      margin-top: 48px;
+      padding-top: 20px;
       border-top: 1px solid var(--line);
-    }
-    footer .shell {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 24px;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 26px;
-      padding-bottom: 34px;
       font-size: 13px;
       color: var(--muted);
     }
-    footer .mark { display: inline-flex; align-items: center; gap: 9px; color: var(--ink); font-weight: 600; }
-    footer .mark .dot {
-      width: 20px; height: 20px; border-radius: 50%;
-      background: var(--accent);
-      display: grid; place-items: center;
-    }
-    footer .mark .dot svg { width: 11px; height: 11px; }
 
     @media (prefers-color-scheme: dark) {
       :root {
-        --accent: #4fd1b4;
-        --accent-soft: rgba(79, 209, 180, .12);
-        --ink: #f2f4f3;
-        --body: #b6beba;
-        --muted: #8d9793;
-        --line: #222927;
-        --bg: #0b0f0e;
-        --panel: #101615;
+        --accent: #5ed3b7;
+        --ink: #e8ecea;
+        --muted: #94a09b;
+        --line: #232a27;
+        --bg: #0c100f;
       }
-      .topbar { background: rgba(11, 15, 14, .82); }
-      .contact { background: #f2f4f3; color: #0b0f0e; }
     }
 
     @media print {
-      .topbar, .toc, .contact, footer .dot { display: none; }
-      body { background: #fff; color: #000; font-size: 11pt; }
-      .layout { display: block; padding: 0; }
-      h1 { font-size: 30pt; }
-      h2 { break-after: avoid; }
-      .facts { border-color: #bbb; }
-      .facts div { border-color: #bbb; }
-      a.inline { color: #000; border: 0; }
+      body { padding: 0; font-size: 11pt; }
+      .meta, footer { color: #444; }
     }
   </style>
 </head>
-<body id="top">
+<body>
+<main>
+  <div class="app">Centsy</div>
+  <h1>Privacy Policy</h1>
+  <p class="meta">Last updated 9 November 2026 · Applies to the Android app <code>com.centsy.app</code></p>
 
-<header class="topbar">
-  <div class="shell">
-    <a class="brand" href="#top">
-      <span class="dot" aria-hidden="true">
-        <svg viewBox="0 0 108 108" xmlns="http://www.w3.org/2000/svg">
-          <path d="M64,38 A18,18 0 1,0 64,70" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round"/>
-          <path d="M44,49 h26 v5 h-26 z" fill="#fff"/>
-          <path d="M44,57 h18 v5 h-18 z" fill="#fff"/>
-        </svg>
-      </span>
-      Centsy
-    </a>
-    <span class="doc">Privacy Policy</span>
-  </div>
-</header>
+  <p>Centsy is an offline personal finance app. Your data stays on your device: there is no
+    account, no tracking, no advertising and no third-party SDK. Nothing you enter is sent to us
+    or to anyone else.</p>
 
-<main class="shell layout">
-  <aside class="toc" aria-label="Contents">
-    <p>On this page</p>
-    <ol>
-      <li><a href="#stores">What the app stores</a></li>
-      <li><a href="#collect">Data we collect</a></li>
-      <li><a href="#permissions">Permissions</a></li>
-      <li><a href="#backups">Backups and exports</a></li>
-      <li><a href="#sharing">Data sharing</a></li>
-      <li><a href="#retention">Retention and deletion</a></li>
-      <li><a href="#security">Security</a></li>
-      <li><a href="#children">Children's privacy</a></li>
-      <li><a href="#changes">Changes</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ol>
-  </aside>
+  <h2>1. What the app stores</h2>
+  <p>Centsy stores the information you enter yourself — accounts, transactions, categories,
+    loans, notes and app settings — in a private database inside the app's storage on your
+    device. This data never leaves the device unless you explicitly export it.</p>
 
-  <article>
-    <p class="eyebrow">Legal · Privacy</p>
-    <h1>Privacy Policy</h1>
-    <p class="lede">Centsy keeps your money data on your device. No account, no tracking, no ads — nothing leaves the phone unless you export it.</p>
-    <p class="updated">Last updated 9 November 2026 &nbsp;·&nbsp; Applies to <code>com.centsy.app</code> for Android</p>
+  <h2>2. Data we collect</h2>
+  <p><strong>None.</strong> Centsy does not collect, transmit or sell personal data. There is no
+    account system, no usage analytics, no crash reporting and no advertising or tracking SDK.</p>
 
-    <div class="facts">
-      <div><span>Data collected</span><strong>None</strong></div>
-      <div><span>Account required</span><strong>No</strong></div>
-      <div><span>Ads / analytics</span><strong>None</strong></div>
-      <div><span>Backups</span><strong>Encrypted</strong></div>
-    </div>
+  <h2>3. Permissions</h2>
+  <ul>
+    <li><strong>Biometric unlock</strong> — fingerprint verification is handled entirely by
+      Android. The app never sees or stores your fingerprint.</li>
+    <li><strong>Files</strong> — used only when you export a report, create a backup or pick a
+      backup folder. The app writes only to the location you choose.</li>
+  </ul>
 
-    <section id="stores">
-      <h2><span>01</span>What the app stores</h2>
-      <p>Centsy stores the information you enter yourself — accounts, transactions, categories,
-        loans, notes and app settings — in a private database inside the app's storage on your
-        device. This data never leaves the device unless you explicitly export it.</p>
-    </section>
+  <h2>4. Backups and exports</h2>
+  <p>Backups are encrypted with AES-256-GCM using a password you choose before they are written.
+    They are saved to the folder or location you pick (for example local storage, an SD card or a
+    folder synced by another app). We have no access to those files or to your password.</p>
 
-    <section id="collect">
-      <h2><span>02</span>Data we collect</h2>
-      <p><strong>None.</strong> Centsy does not collect, transmit or sell personal data. There is no
-        account system, no usage analytics, no crash reporting and no advertising or tracking SDK.</p>
-    </section>
+  <h2>5. Data sharing</h2>
+  <p>We do not share data with third parties. If you share an exported file or report yourself
+    (for example by email or messaging), that is entirely under your control.</p>
 
-    <section id="permissions">
-      <h2><span>03</span>Permissions</h2>
-      <div class="perm">
-        <div class="ico" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/>
-          </svg>
-        </div>
-        <div>
-          <h3>Biometric unlock</h3>
-          <p>Fingerprint verification is handled entirely by Android. The app never sees or stores
-            your fingerprint.</p>
-        </div>
-      </div>
-      <div class="perm">
-        <div class="ico" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 7h6l2 2h8v10H4z"/><path d="M4 7V5h6l2 2"/>
-          </svg>
-        </div>
-        <div>
-          <h3>Files</h3>
-          <p>Used only when you export a report, create a backup or pick a backup folder. The app
-            writes only to the location you choose.</p>
-        </div>
-      </div>
-    </section>
+  <h2>6. Data retention and deletion</h2>
+  <p>Your data stays on your device until you delete it. Deleted transactions are moved to an
+    in-app Trash that you can empty, and uninstalling the app removes all app data. Because we
+    never receive your data, there is nothing for us to delete on our side.</p>
 
-    <section id="backups">
-      <h2><span>04</span>Backups and exports</h2>
-      <p>Backups are encrypted with AES-256-GCM using a password you choose before they are written.
-        They are saved to the folder or location you pick (for example local storage, an SD card or
-        a folder synced by another app). We have no access to those files or to your password.</p>
-    </section>
+  <h2>7. Security</h2>
+  <p>The app is protected by a PIN (stored as a salted, iterated hash) and optional fingerprint
+    unlock, and its screens are excluded from screenshots and the recent-apps preview. Backups
+    are encrypted before they are saved.</p>
 
-    <section id="sharing">
-      <h2><span>05</span>Data sharing</h2>
-      <p>We do not share data with third parties. If you share an exported file or report yourself
-        (for example by email or messaging), that is entirely under your control.</p>
-    </section>
+  <h2>8. Children's privacy</h2>
+  <p>Centsy is not directed at children under 13 and collects no personal data from anyone.</p>
 
-    <section id="retention">
-      <h2><span>06</span>Data retention and deletion</h2>
-      <p>Your data stays on your device until you delete it. Deleted transactions are moved to an
-        in-app Trash that you can empty, and uninstalling the app removes all app data. Because we
-        never receive your data, there is nothing for us to delete on our side.</p>
-    </section>
+  <h2>9. Changes to this policy</h2>
+  <p>If this policy changes, the updated version will be published at this page with a new
+    “last updated” date.</p>
 
-    <section id="security">
-      <h2><span>07</span>Security</h2>
-      <p>The app is protected by a PIN (stored as a salted, iterated hash) and optional fingerprint
-        unlock, and its screens are excluded from screenshots and the recent-apps preview. Backups
-        are encrypted before they are saved.</p>
-    </section>
+  <h2>10. Contact</h2>
+  <p>Questions about this policy or the app:
+    <a href="mailto:cse.mdmehedi@gmail.com">cse.mdmehedi@gmail.com</a></p>
 
-    <section id="children">
-      <h2><span>08</span>Children's privacy</h2>
-      <p>Centsy is not directed at children under 13 and collects no personal data from anyone.</p>
-    </section>
-
-    <section id="changes">
-      <h2><span>09</span>Changes to this policy</h2>
-      <p>If this policy changes, the updated version will be published at this page with a new
-        “last updated” date.</p>
-    </section>
-
-    <section id="contact">
-      <h2><span>10</span>Contact</h2>
-      <p>Questions about this policy or the app:</p>
-      <div class="contact-row">
-        <a class="contact" href="mailto:cse.mdmehedi@gmail.com">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3 7l9 6 9-6"/>
-          </svg>
-          cse.mdmehedi@gmail.com
-        </a>
-        <span class="contact-note">Usually answered within a couple of days.</span>
-      </div>
-    </section>
-  </article>
+  <footer>Centsy — personal finance, kept private.</footer>
 </main>
-
-<footer>
-  <div class="shell">
-    <span class="mark">
-      <span class="dot" aria-hidden="true">
-        <svg viewBox="0 0 108 108" xmlns="http://www.w3.org/2000/svg">
-          <path d="M64,38 A18,18 0 1,0 64,70" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round"/>
-          <path d="M44,49 h26 v5 h-26 z" fill="#fff"/>
-          <path d="M44,57 h18 v5 h-18 z" fill="#fff"/>
-        </svg>
-      </span>
-      Centsy — personal finance, kept private.
-    </span>
-    <span>© 2026 Centsy</span>
-  </div>
-</footer>
-
 </body>
 </html>
