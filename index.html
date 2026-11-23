@@ -90,7 +90,7 @@
 <main>
   <div class="app">Centsy</div>
   <h1>Privacy Policy</h1>
-  <p class="meta">Last updated 11 November 2026 · Applies to Centsy 0.2.2 for Android (<code>com.centsy.app</code>)</p>
+  <p class="meta">Last updated 22 November 2026 · Applies to Centsy 0.2.3 for Android (<code>com.centsy.app</code>)</p>
 
   <p>Centsy is an offline personal finance app. Your data stays on your device: there is no
     Centsy account, no tracking and no advertising. Nothing you enter is sent to us or to anyone
@@ -99,8 +99,9 @@
 
   <h2>1. What the app stores</h2>
   <p>Centsy stores the information you enter yourself — accounts, transactions, categories,
-    loans, notes and app settings — in a private database inside the app's storage on your
-    device. This data never leaves the device unless you explicitly export it.</p>
+    loans, people and institutions, value ratings you add to expenses, and app settings — in a
+    private database inside the app's storage on your device. This data never leaves the device
+    unless you explicitly export or back it up.</p>
 
   <h2>2. Data we collect</h2>
   <p><strong>None.</strong> Centsy does not collect, transmit or sell personal data. There is no
@@ -117,17 +118,20 @@
   </ul>
 
   <h2>4. Backups and exports</h2>
-  <p>Backups are encrypted with AES-256-GCM using a password you choose before they are written.
-    They are saved to the folder or location you pick (for example local storage, an SD card or a
-    folder synced by another app). We have no access to those files or to your password.</p>
-  <p>If you connect Google Drive, encrypted backups are also uploaded to a hidden app-data folder in
-    your own Google account. The file is encrypted on your device before it is uploaded and only
-    your backup password can open it. We cannot access your Google account or those files, and you
-    can disconnect Google Drive or turn off automatic backup at any time in Settings.</p>
+  <p><strong>Backups are not encrypted.</strong> A backup is a compressed copy of your database.
+    Treat it like the app itself: anyone who can open the file can read everything in it. Store it
+    somewhere you trust.</p>
+  <p>You can back up to a folder you pick (local storage, an SD card, a folder synced by another
+    app) or to a hidden app-data folder in your own Google Drive. The developer never receives
+    either. Backups are written on demand or automatically on a schedule you choose, and older
+    copies are pruned automatically to keep the count small.</p>
+  <p>If you connect Google Drive, only your Google account has access to those files. You can
+    disconnect Google Drive or turn off automatic backup at any time in Settings.</p>
 
   <h2>5. Data sharing</h2>
-  <p>We do not share data with third parties. If you share an exported file or report yourself
-    (for example by email or messaging), that is entirely under your control.</p>
+  <p>We do not share data with third parties. If you share an exported file, backup or report
+    yourself (for example by email or messaging), that is entirely under your control — and
+    because backups are not encrypted, anyone you send one to can read it.</p>
   <p>When you connect Google Drive, sign-in and authorisation are handled by Google. The app
     receives only your Google account email address, so it can show which account is connected.
     Backups are written to your own Drive storage; the developer never receives them.</p>
@@ -136,10 +140,13 @@
   <p>Your data stays on your device until you delete it. Deleted transactions are moved to an
     in-app Trash that you can empty, and uninstalling the app removes all app data. Because we
     never receive your data, there is nothing for us to delete on our side.</p>
+  <p>If you forget your PIN you can reset the app from the lock screen. That erases all local
+    data so you can set a new PIN; a backup you made earlier can be restored afterwards.</p>
 
   <h2>7. Security</h2>
   <p>The app is protected by a PIN (stored as a salted, iterated hash) and optional fingerprint
-    unlock. Backups are encrypted before they are saved.</p>
+    unlock. If you forget the PIN it cannot be recovered — the only option is to erase the local
+    data and start again, or restore a backup.</p>
   <p>Centsy does not block system screenshots. Any screenshot you take is captured and stored by
     Android on your device; the app does not upload, collect or transmit it.</p>
 
